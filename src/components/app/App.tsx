@@ -61,31 +61,33 @@ function App() {
   };
 
   return (
-    <StyledApp>
+    <>
       <GlobalStyle />
-      <Header />
-      <Main>
-        <Form callback={handleSumbit}>
-          <Input ref={inputRef} />
-          <Button text="Find" />
-        </Form>
-        <>
-          {video && (
-            <iframe
-              width="100vh"
-              height="100vw"
-              src={video}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Embedded youtube"
-            />
-          )}
-          {loading && <Loader />}
-          {error && <AppError />}
-        </>
-      </Main>
-    </StyledApp>
+      <StyledApp>
+        <Header />
+        <Main>
+          <Form callback={handleSumbit}>
+            <Input ref={inputRef} />
+            <Button text="Find" />
+          </Form>
+          <>
+            {video && (
+              <iframe
+                width="100vh"
+                height="100vw"
+                src={video}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+              />
+            )}
+            {loading && <Loader />}
+            {error && <AppError />}
+          </>
+        </Main>
+      </StyledApp>
+    </>
   );
 }
 
