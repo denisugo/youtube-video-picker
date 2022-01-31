@@ -22,6 +22,10 @@ export const paragraph = {
   text: "#2b2b2b",
 };
 
+export const error = {
+  text: "#F63D28",
+};
+
 export const input = {
   background: "#0568e9",
   text: "#000",

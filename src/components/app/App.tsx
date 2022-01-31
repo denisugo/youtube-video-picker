@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ReactChild } from "react";
 import Header from "../header/Header";
 import Main from "../main/Main";
 import Form from "../form/Form";
@@ -8,10 +7,12 @@ import Input from "../input/Input";
 import { GlobalStyle } from "../globalStyles/GlobalStyles";
 import { FormEvent, useRef, useState } from "react";
 import { app } from "../../config/colors";
+import AppError from "../error/AppError";
+import Loader from "../loader/Loader";
 
 const StyledApp = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: ${app.background};
 `;
 
@@ -80,8 +81,8 @@ function App() {
               title="Embedded youtube"
             />
           )}
-          {loading && <div>Loading</div>}
-          {error && <div>error</div>}
+          {loading && <Loader />}
+          {error && <AppError />}
         </>
       </Main>
     </StyledApp>
