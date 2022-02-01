@@ -13,6 +13,7 @@ const StyledInput = styled.input`
   box-shadow: 0 0 5px ${input.shadow};
   font-size: 1.3rem;
   color: ${input.text};
+  -webkit-appearance: none;
 
   &::placeholder {
     color: ${input.placeholder};

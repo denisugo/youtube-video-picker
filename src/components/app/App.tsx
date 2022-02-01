@@ -28,6 +28,8 @@ function App() {
   const handleSumbit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
+    setVideo(null);
+
     const encoded = encodeURIComponent(String(inputRef.current?.value));
 
     setLoading(true);
@@ -68,13 +70,12 @@ function App() {
         <Main>
           <Form callback={handleSumbit}>
             <Input ref={inputRef} />
-            <Button text="Find" />
+            <Button />
           </Form>
           <>
             {video && (
               <iframe
-                width="100vh"
-                height="100vw"
+                style={{ width: "100vw", height: "100vh" }}
                 src={video}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

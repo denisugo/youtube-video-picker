@@ -7,7 +7,7 @@ describe("App", () => {
     render(<App />);
     screen.getByText(/Welcome to my app/i);
     screen.getByPlaceholderText(/Paste/i);
-    screen.getByRole("button", { name: /Find/i });
+    screen.getByRole("button");
   });
   it("Should show video", async () => {
     const mockSuccessResponse = {
@@ -24,7 +24,7 @@ describe("App", () => {
 
     render(<App />);
 
-    const button = screen.getByRole("button", { name: /Find/i });
+    const button = screen.getByRole("button");
 
     fireEvent.click(button);
     await screen.findByText(/loading/i);
@@ -45,7 +45,7 @@ describe("App", () => {
 
     render(<App />);
 
-    const button = screen.getByRole("button", { name: /Find/i });
+    const button = screen.getByRole("button");
 
     fireEvent.click(button);
 

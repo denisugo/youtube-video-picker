@@ -1,6 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 import { button } from "../../config/colors";
+import { IoIosSwap } from "react-icons/io";
 
 const StyledButton = styled.button`
   width: 60px;
@@ -12,18 +12,21 @@ const StyledButton = styled.button`
   color: ${button.text};
   transition: 0.2s all;
   box-shadow: 0 0 5px ${button.shadow};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:active {
     transform: scale(0.8);
   }
 `;
 
-interface IButton {
-  text: string;
-}
-
-function Button({ text }: IButton) {
-  return <StyledButton>{text}</StyledButton>;
+function Button() {
+  return (
+    <StyledButton>
+      <IoIosSwap />
+    </StyledButton>
+  );
 }
 
 export default Button;
