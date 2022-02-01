@@ -29,6 +29,7 @@ function App() {
     e.preventDefault();
 
     setVideo(null);
+    setError(false);
 
     const encoded = encodeURIComponent(String(inputRef.current?.value));
 
