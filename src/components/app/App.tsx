@@ -14,6 +14,7 @@ const StyledApp = styled.div`
   width: 100vw;
   height: 100%;
   background-color: ${app.background};
+  overflow: scroll;
 `;
 
 const APIKey = process.env.REACT_APP_API_KEY;
@@ -36,14 +37,14 @@ function App() {
     setLoading(true);
 
     try {
-      const channelUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10000&q=${encoded}&safeSearch=none&key=${APIKey}`;
+      const channelUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encoded}&type=channel&safeSearch=none&key=${APIKey}`;
       const fetchedResults = await fetch(channelUrl);
 
       if (!fetchedResults.ok) throw new Error();
 
       const channelId = (await fetchedResults.json()).items[0].id.channelId;
 
-      const videoUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=rating&channelId=${channelId}&maxResults=10000&safeSearch=none&key=${APIKey}`;
+      const videoUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=rating&channelId=${channelId}&maxResults=50&type=video&safeSearch=none&key=${APIKey}`;
       const fetchedVideos = await fetch(videoUrl);
 
       if (!fetchedVideos.ok) throw new Error();
